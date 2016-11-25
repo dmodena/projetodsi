@@ -10,5 +10,8 @@ package ifsp.dsi.entidades;
  * @author Doug Modena
  */
 public interface Opcao {
-    
+    double getValorCusto();
+    double getLucro();
+    void setLucro(double lucro);
+    double getValorVenda();
 }

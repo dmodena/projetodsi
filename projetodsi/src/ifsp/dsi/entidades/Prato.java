@@ -5,12 +5,42 @@
  */
 package ifsp.dsi.entidades;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Doug Modena
  */
 public class Prato implements Opcao {
-    private List<ItemPrato> ingredientes;
+    private double lucro;
+    private Map<ItemPrato, Integer> ingredientes;
+
+    @Override
+    public double getValorCusto() {
+        double valorCusto = 0d;
+        
+        // todo Iterar Map e retornar total.
+        
+        /* return ingredientes
+                .stream()
+                .map((i) -> i.getValor())
+                .reduce(0d, (sum, item) -> sum + item); */
+        
+        return valorCusto;
+    }
+
+    @Override
+    public double getLucro() {
+        return lucro;
+    }
+
+    @Override
+    public void setLucro(double lucro) {
+        this.lucro = lucro;
+    }
+
+    @Override
+    public double getValorVenda() {
+        return getValorCusto() + (getValorCusto() * lucro);
+    }
 }

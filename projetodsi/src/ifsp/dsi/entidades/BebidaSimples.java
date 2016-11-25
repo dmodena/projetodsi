@@ -13,6 +13,7 @@ public class BebidaSimples implements Item, Opcao {
     private int quantidade;
     private String descricao;
     private double valor;
+    private double lucro;
 
     @Override
     public int getQuantidade() {
@@ -42,5 +43,25 @@ public class BebidaSimples implements Item, Opcao {
     @Override
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    @Override
+    public double getValorCusto() {
+        return getValor();
+    }
+
+    @Override
+    public double getLucro() {
+        return lucro;
+    }
+
+    @Override
+    public void setLucro(double lucro) {
+        this.lucro = lucro;
+    }
+
+    @Override
+    public double getValorVenda() {
+        return getValor() + (getValor() * lucro);
     }
 }
