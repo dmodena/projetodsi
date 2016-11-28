@@ -19,7 +19,7 @@ public class BebidaComposta implements Opcao {
     public double getValorCusto() {
         return ingredientes
                 .stream()
-                .map((i) -> i.getValor())
+                .map((i) -> i.getValorUnitario())
                 .reduce(0d, (sum, item) -> sum + item);
     }
 

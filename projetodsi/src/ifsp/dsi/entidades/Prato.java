@@ -5,6 +5,7 @@
  */
 package ifsp.dsi.entidades;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,6 +15,17 @@ import java.util.Map;
 public class Prato implements Opcao {
     private double lucro;
     private Map<ItemPrato, Integer> ingredientes;
+    
+    public Prato(double lucro)
+    {
+        this.lucro = lucro;
+        ingredientes = new HashMap<>();
+    }
+    
+    public void setIngrediente(ItemPrato item, Integer quantidade)
+    {
+        ingredientes.put(item, quantidade);
+    }
 
     @Override
     public double getValorCusto() {

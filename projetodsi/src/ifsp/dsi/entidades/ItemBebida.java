@@ -10,18 +10,18 @@ package ifsp.dsi.entidades;
  * @author Doug Modena
  */
 public class ItemBebida implements Item {
-    private int quantidade;
+    private int qtdeEstoque;
     private String descricao;
-    private double valor;
+    private double valorUnitario;
 
     @Override
-    public int getQuantidade() {
-        return quantidade;
+    public int getQtdeEstoque() {
+        return qtdeEstoque;
     }
 
     @Override
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQtdeEstoque(int qtdeEstoque) {
+        this.qtdeEstoque = qtdeEstoque;
     }
 
     @Override
@@ -35,12 +35,12 @@ public class ItemBebida implements Item {
     }
 
     @Override
-    public double getValor() {
-        return valor;
+    public double getValorUnitario() {
+        return valorUnitario;
     }
 
     @Override
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setValorUnitario(double valorUnitario) {
+        this.valorUnitario = valorUnitario;
     }
 }

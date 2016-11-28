@@ -10,10 +10,10 @@ package ifsp.dsi.entidades;
  * @author Doug Modena
  */
 public interface Item {
-    int getQuantidade();
-    void setQuantidade(int quantidade);
+    int getQtdeEstoque();
+    void setQtdeEstoque(int qtdeEstoque);
     String getDescricao();
     void setDescricao(String descricao);
-    double getValor();
-    void setValor(double valor);
+    double getValorUnitario();
+    void setValorUnitario(double valorUnitario);
 }
