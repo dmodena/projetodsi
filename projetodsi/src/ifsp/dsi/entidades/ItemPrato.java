@@ -9,24 +9,27 @@ package ifsp.dsi.entidades;
  *
  * @author Doug Modena
  */
-public class ItemPrato implements Item {
-    private int qtdeEstoque;
+public class ItemPrato implements Item 
+{
+    private int quantidade;
     private String descricao;
     private double valorUnitario;
 
-    public ItemPrato(String descricao, int qtdeEstoque, double valorUnitario)
+    public ItemPrato(String descricao, int quantidade, double valorUnitario)
     {
-        
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.valorUnitario = valorUnitario;
     }
     
     @Override
-    public int getQtdeEstoque() {
-        return qtdeEstoque;
+    public int getQuantidade() {
+        return quantidade;
     }
 
     @Override
-    public void setQtdeEstoque(int qtdeEstoque) {
-        this.qtdeEstoque = qtdeEstoque;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override

@@ -5,13 +5,17 @@
  */
 package ifsp.dsi.entidades;
 
+import java.util.Map;
+
 /**
  *
  * @author Doug Modena
  */
-public interface Opcao {
-    double getValorCusto();
-    double getLucro();
-    void setLucro(double lucro);
-    double getValorVenda();
+public interface Opcao 
+{
+    public double getValorCusto();
+    public double getLucro();
+    public void setLucro(double lucro);
+    public double getValorVenda();
+    public Map<Item, Integer> getIngredientes();
 }

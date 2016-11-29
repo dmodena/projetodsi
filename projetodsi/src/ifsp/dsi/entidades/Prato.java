@@ -6,13 +6,17 @@
 package ifsp.dsi.entidades;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
  * @author Doug Modena
  */
-public class Prato implements Opcao {
+public class Prato implements Opcao 
+{
     private double lucro;
     private Map<ItemPrato, Integer> ingredientes;
     
@@ -28,31 +32,53 @@ public class Prato implements Opcao {
     }
 
     @Override
-    public double getValorCusto() {
+    public double getValorCusto() 
+    {
         double valorCusto = 0d;
         
-        // todo Iterar Map e retornar total.
-        
-        /* return ingredientes
-                .stream()
-                .map((i) -> i.getValor())
-                .reduce(0d, (sum, item) -> sum + item); */
+        Set<Entry<ItemPrato, Integer>> set = ingredientes.entrySet();
+        Iterator it = set.iterator();
+
+        while(it.hasNext())
+        {
+            Entry<ItemPrato, Integer> entry = (Entry)it.next();
+            valorCusto += entry.getKey().getValorUnitario() * entry.getValue();            
+        }
         
         return valorCusto;
     }
 
     @Override
-    public double getLucro() {
+    public double getLucro() 
+    {
         return lucro;
     }
 
     @Override
-    public void setLucro(double lucro) {
+    public void setLucro(double lucro) 
+    {
         this.lucro = lucro;
     }
 
     @Override
-    public double getValorVenda() {
+    public double getValorVenda() 
+    {
         return getValorCusto() + (getValorCusto() * lucro);
+    }
+
+    @Override
+    public Map<Item, Integer> getIngredientes() 
+    {
+        Map<Item, Integer> retorno = new HashMap<>();
+        
+        for (Map.Entry<ItemPrato, Integer> entry : ingredientes.entrySet()) 
+        {
+            if(entry.getKey() instanceof Item)
+            {
+                retorno.put(entry.getKey(), entry.getValue());
+            }
+        }
+        
+        return retorno;
     }
 }

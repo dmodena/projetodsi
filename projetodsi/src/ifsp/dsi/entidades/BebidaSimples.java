@@ -5,24 +5,26 @@
  */
 package ifsp.dsi.entidades;
 
+import java.util.Map;
+
 /**
  *
  * @author Doug Modena
  */
 public class BebidaSimples implements Item, Opcao {
-    private int qtdeEstoque;
+    private int quantidade;
     private String descricao;
     private double valorUnitario;
     private double lucro;
 
     @Override
-    public int getQtdeEstoque() {
-        return qtdeEstoque;
+    public int getQuantidade() {
+        return quantidade;
     }
 
     @Override
-    public void setQtdeEstoque(int qtdeEstoque) {
-        this.qtdeEstoque = qtdeEstoque;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
@@ -63,5 +65,10 @@ public class BebidaSimples implements Item, Opcao {
     @Override
     public double getValorVenda() {
         return getValorUnitario() + (getValorUnitario() * lucro);
+    }
+
+    @Override
+    public Map<Item, Integer> getIngredientes() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
