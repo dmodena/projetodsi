@@ -6,6 +6,7 @@
 package ifsp.dsi.entidades;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -29,7 +30,7 @@ public class Comanda
     private int operadoraCartao;
     private Estoque estoque;
 
-    public Comanda(int codigo, Atendente atendente, Mesa mesa, Date horaInicio, int qtdePessoas, double valorCouvert) 
+    public Comanda(Atendente atendente, Mesa mesa, Date horaInicio, int qtdePessoas, double valorCouvert) 
     {
         this.codigo = -1;
         this.atendente = atendente;
@@ -38,6 +39,7 @@ public class Comanda
         this.qtdePessoas = qtdePessoas;
         this.valorCouvert = valorCouvert;
         estoque = Estoque.getInstance();
+        itens = new HashMap<>();
     }
 
     public void setCodigo(int codigo) 
@@ -92,7 +94,7 @@ public class Comanda
         {
             Map.Entry<Item, Integer> entry = (Map.Entry)it.next();
             
-            if (estoque.getQuantidadeItem(entry.getKey()) >= entry.getKey().getQuantidade())
+            if (estoque.getQuantidadeItem(entry.getKey()) >= entry.getValue())
             {
                 efetuarPedido = true;
             }
@@ -106,8 +108,32 @@ public class Comanda
         if (efetuarPedido)
         {
             itens.put(opcao, quantidade);
+            Map<Item, Integer> ingredientes2 = opcao.getIngredientes();
+            Set<Map.Entry<Item, Integer>> set2 = ingredientes2.entrySet();
+            Iterator it2 = set2.iterator();
+
+            while(it2.hasNext())
+            {
+                Map.Entry<Item, Integer> entry = (Map.Entry)it2.next();
+                estoque.darBaixaQuantidade(entry.getKey(), quantidade);
+            }
         }
         
         return efetuarPedido;
+    }
+    
+    public double getValorTotal()
+    {
+        valorTotal = valorCouvert;
+        Set<Map.Entry<Opcao, Integer>> set = itens.entrySet();
+        Iterator it = set.iterator();
+
+        while(it.hasNext())
+        {
+            Map.Entry<Opcao, Integer> entry = (Map.Entry)it.next();
+            valorTotal += entry.getKey().getValorVenda() * entry.getValue();           
+        }
+        
+        return valorTotal;
     }
 }

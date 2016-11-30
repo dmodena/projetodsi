@@ -12,12 +12,21 @@ import java.util.Map;
  * @author Doug Modena
  */
 public class BebidaSimples implements Item, Opcao {
-    private int quantidade;
+    //private int quantidade;
     private String descricao;
     private double valorUnitario;
     private double lucro;
 
-    @Override
+    public BebidaSimples(String descricao, double valorUnitario, double lucro) 
+    {
+        this.descricao = descricao;
+        this.valorUnitario = valorUnitario;
+        this.lucro = lucro;
+    }
+
+    
+    
+    /*@Override
     public int getQuantidade() {
         return quantidade;
     }
@@ -25,7 +34,7 @@ public class BebidaSimples implements Item, Opcao {
     @Override
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-    }
+    }*/
 
     @Override
     public String getDescricao() {

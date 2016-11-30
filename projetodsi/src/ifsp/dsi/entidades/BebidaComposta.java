@@ -20,6 +20,11 @@ public class BebidaComposta implements Opcao
     private double lucro;
     private Map<ItemBebida, Integer> ingredientes;
 
+    public BebidaComposta(double lucro)
+    {
+        this.lucro = lucro;
+        ingredientes = new HashMap<>();
+    }
     
     public void setIngrediente(ItemBebida item, Integer quantidade)
     {

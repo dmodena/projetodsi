@@ -5,18 +5,22 @@
  */
 package ifsp.dsi.entidades;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  *
  * @author IFSP-CTI-04
  */
-class Estoque 
+public class Estoque 
 {
     private static Estoque estoque;
     private Map<Item, Integer> itensEstoque;
     
-    private Estoque(){}
+    private Estoque()
+    {
+        itensEstoque = new HashMap<>();
+    }
     
     public static Estoque getInstance()
     {
@@ -36,6 +40,15 @@ class Estoque
     public Integer getQuantidadeItem(Item item)
     {
         return itensEstoque.get(item);
+    }
+    
+    public void darBaixaQuantidade(Item item, Integer quantidade)
+    {
+        if (itensEstoque.containsKey(item))
+        {
+            System.out.println("Item: " + item.getDescricao() + " Quantidade: " + (itensEstoque.get(item) - quantidade));
+            itensEstoque.replace(item, itensEstoque.get(item) - quantidade);
+        }
     }
     
     public void alteraQuantidade(Item item, Integer quantidade)

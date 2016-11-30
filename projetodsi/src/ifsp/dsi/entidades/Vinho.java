@@ -9,7 +9,15 @@ package ifsp.dsi.entidades;
  *
  * @author Doug Modena
  */
-public class Vinho extends BebidaSimples {
+public class Vinho extends BebidaSimples 
+{
     private int safra;
     private String tipoUva;
+    
+    public Vinho(String descricao, double valorUnitario, double lucro, int safra, String tipouva)
+    {
+        super(descricao, valorUnitario, lucro);
+        this.safra = safra;
+        this.tipoUva = tipoUva;
+    }
 }

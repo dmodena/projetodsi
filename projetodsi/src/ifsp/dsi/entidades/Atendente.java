@@ -9,7 +9,7 @@ package ifsp.dsi.entidades;
  *
  * @author IFSP-CTI-04
  */
-class Atendente 
+public class Atendente 
 {
     private int codigo;
     private String nome;

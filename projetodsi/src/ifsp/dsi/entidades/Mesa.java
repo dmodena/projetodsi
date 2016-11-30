@@ -9,7 +9,7 @@ package ifsp.dsi.entidades;
  *
  * @author IFSP-CTI-04
  */
-class Mesa 
+public class Mesa 
 {
     private int numero;
     
