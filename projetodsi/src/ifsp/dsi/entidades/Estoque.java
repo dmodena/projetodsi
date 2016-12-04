@@ -46,8 +46,11 @@ public class Estoque
     {
         if (itensEstoque.containsKey(item))
         {
-            System.out.println("Item: " + item.getDescricao() + " Quantidade: " + (itensEstoque.get(item) - quantidade));
-            itensEstoque.replace(item, itensEstoque.get(item) - quantidade);
+            //System.out.println("Item: " + item.getDescricao() + " Quantidade: " + (itensEstoque.get(item) - quantidade));
+            if (itensEstoque.get(item) > 0)
+            {
+                itensEstoque.replace(item, itensEstoque.get(item) - quantidade);
+            }
         }
     }
     

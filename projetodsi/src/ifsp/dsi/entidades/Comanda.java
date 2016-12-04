@@ -93,9 +93,11 @@ public class Comanda
         while(it.hasNext())
         {
             Map.Entry<Item, Integer> entry = (Map.Entry)it.next();
+            int qtdeEstoque = estoque.getQuantidadeItem(entry.getKey());
             
-            if (estoque.getQuantidadeItem(entry.getKey()) >= entry.getValue())
+            if (qtdeEstoque >= entry.getValue() * quantidade && qtdeEstoque > 0)
             {
+                //System.out.println("Em estoque: " + qtdeEstoque + " Necessário: " + entry.getValue() * quantidade);
                 efetuarPedido = true;
             }
             else
@@ -115,7 +117,7 @@ public class Comanda
             while(it2.hasNext())
             {
                 Map.Entry<Item, Integer> entry = (Map.Entry)it2.next();
-                estoque.darBaixaQuantidade(entry.getKey(), quantidade);
+                estoque.darBaixaQuantidade(entry.getKey(), entry.getValue() * quantidade);
             }
         }
         

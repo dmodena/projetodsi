@@ -5,6 +5,7 @@
  */
 package ifsp.dsi.entidades;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -78,6 +79,9 @@ public class BebidaSimples implements Item, Opcao {
 
     @Override
     public Map<Item, Integer> getIngredientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map<Item, Integer> retorno = new HashMap<>();
+        retorno.put(this, 1);
+        
+        return retorno;
     }
 }
