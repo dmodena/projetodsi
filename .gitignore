@@ -3,3 +3,5 @@ projetodsi/build/
 projetodsi/dist/
 projetodsi/nbproject/private/
 
+#Project specific files
+projetodsi/src/ifsp/dsi/tests/
