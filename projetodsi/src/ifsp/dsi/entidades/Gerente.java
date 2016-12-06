@@ -39,6 +39,4 @@ public class Gerente
     {
         this.nome = nome;
     }
-    
-    
 }
