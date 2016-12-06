@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Doug Modena
  */
-public class GerenteDAO extends EntidadeDAO implements IEntidadeDAO<Gerente> {
+public class GerenteDAO extends EntidadeDAO implements IEntidadeDAO<Gerente>, ICodIntDAO<Gerente> {
 
     @Override
     public void salvar(Gerente g) throws SQLException {
@@ -66,6 +66,34 @@ public class GerenteDAO extends EntidadeDAO implements IEntidadeDAO<Gerente> {
         }
         
         return gerentes;
+    }
+    
+    @Override
+    public Gerente buscarPorId(int id) throws SQLException {
+        Connection con = null;
+        PreparedStatement pStat = null;
+        ResultSet rs = null;
+        String sql = "SELECT CODIGO, NOME FROM GERENTES WHERE CODIGO = ?";
+        ConexaoBD conexaoBd = ConexaoBD.getInstance();
+        Gerente gerente = null;
+        
+        try {
+            con = conexaoBd.getConnection();
+            pStat = con.prepareStatement(sql);
+            pStat.setInt(1, id);
+            rs = pStat.executeQuery();
+            
+            if(rs.next()) {
+                int arg1 = rs.getInt(1);
+                String arg2 = rs.getString(2);
+                gerente = new Gerente(arg1, arg2);
+            }
+        }
+        finally {
+            fecharRecursos(con, pStat, rs);
+        }
+        
+        return gerente;
     }
     
 }

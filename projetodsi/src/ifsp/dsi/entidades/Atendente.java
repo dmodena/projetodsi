@@ -14,11 +14,15 @@ public class Atendente
     private int codigo;
     private String nome;
     private Gerente gerente;
+    
+    public Atendente(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
 
     public Atendente(int codigo, String nome, Gerente gerente)
     {
-        this.codigo = codigo;
-        this.nome = nome;
+        this(codigo, nome);
         this.gerente = gerente;
     }
 
@@ -50,7 +54,5 @@ public class Atendente
     public void setGerente(Gerente gerente) 
     {
         this.gerente = gerente;
-    }
-    
-    
+    }    
 }
