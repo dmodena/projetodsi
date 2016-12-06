@@ -19,6 +19,8 @@ public class BebidaComposta implements Opcao
 {
     private double lucro;
     private Map<ItemBebida, Integer> ingredientes;
+    
+    public BebidaComposta() { }
 
     public BebidaComposta(double lucro)
     {

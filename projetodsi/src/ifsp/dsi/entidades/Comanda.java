@@ -29,6 +29,8 @@ public class Comanda
     private int formaPagamento;
     private int operadoraCartao;
     private Estoque estoque;
+    
+    public Comanda() { }
 
     public Comanda(Atendente atendente, Mesa mesa, Date horaInicio, int qtdePessoas, double valorCouvert) 
     {

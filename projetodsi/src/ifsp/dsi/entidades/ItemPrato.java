@@ -14,6 +14,8 @@ public class ItemPrato implements Item
     //private int quantidade;
     private String descricao;
     private double valorUnitario;
+    
+    public ItemPrato() { }
 
     public ItemPrato(String descricao, double valorUnitario)
     {

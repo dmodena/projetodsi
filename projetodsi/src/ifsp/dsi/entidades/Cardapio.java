@@ -13,4 +13,6 @@ import java.util.List;
  */
 public class Cardapio {
     private List<Opcao> opcoes;
+    
+    public Cardapio() { }
 }

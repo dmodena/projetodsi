@@ -17,6 +17,8 @@ public class BebidaSimples implements Item, Opcao {
     private String descricao;
     private double valorUnitario;
     private double lucro;
+    
+    public BebidaSimples() { }
 
     public BebidaSimples(String descricao, double valorUnitario, double lucro) 
     {

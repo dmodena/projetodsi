@@ -14,6 +14,8 @@ public class Vinho extends BebidaSimples
     private int safra;
     private String tipoUva;
     
+    public Vinho() { }
+    
     public Vinho(String descricao, double valorUnitario, double lucro, int safra, String tipouva)
     {
         super(descricao, valorUnitario, lucro);

@@ -14,6 +14,8 @@ public class ItemBebida implements Item
     //private int quantidade;
     private String descricao;
     private double valorUnitario;
+    
+    public ItemBebida() { }
 
     public ItemBebida(String descricao, double valorUnitario) 
     {

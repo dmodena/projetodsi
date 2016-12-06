@@ -13,6 +13,8 @@ public class Gerente
 {
     private int codigo;
     private String nome;
+    
+    public Gerente() { }
 
     public Gerente(int codigo, String nome) 
     {

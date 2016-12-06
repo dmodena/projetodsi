@@ -15,6 +15,8 @@ public class Atendente
     private String nome;
     private Gerente gerente;
     
+    public Atendente() { }
+    
     public Atendente(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;

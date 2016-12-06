@@ -20,6 +20,8 @@ public class Prato implements Opcao
     private double lucro;
     private Map<ItemPrato, Integer> ingredientes;
     
+    public Prato() { }
+    
     public Prato(double lucro)
     {
         this.lucro = lucro;

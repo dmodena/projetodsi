@@ -17,7 +17,7 @@ public class Estoque
     private static Estoque estoque;
     private Map<Item, Integer> itensEstoque;
     
-    private Estoque()
+    public Estoque()
     {
         itensEstoque = new HashMap<>();
     }
