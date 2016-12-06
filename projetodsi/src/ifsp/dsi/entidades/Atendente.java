@@ -5,14 +5,22 @@
  */
 package ifsp.dsi.entidades;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author IFSP-CTI-04
  */
+@XmlRootElement(name = "atendente")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Atendente 
 {
     private int codigo;
     private String nome;
+    @XmlElement(name = "gerente")
     private Gerente gerente;
     
     public Atendente() { }

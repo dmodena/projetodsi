@@ -5,3 +5,6 @@ projetodsi/nbproject/private/
 
 #Project specific files
 projetodsi/src/ifsp/dsi/tests/
+xml/*.xml
+json/*.json
+
