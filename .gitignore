@@ -7,4 +7,5 @@ projetodsi/nbproject/private/
 projetodsi/src/ifsp/dsi/tests/
 xml/*.xml
 json/*.json
+pdf/*.pdf
 

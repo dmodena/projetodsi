@@ -17,4 +17,8 @@ public class Folders {
     public static String getFolderJson() {
         return "..\\json\\";
     }
+    
+    public static String getFolderPdf() {
+        return "..\\pdf\\";
+    }
 }

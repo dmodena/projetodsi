@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioAtendentes" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f431914-6e63-47b1-a64b-8203530ad264">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT A.CODIGO, A.NOME, A.COD_GERENTE, G.NOME NOME_GERENTE
+FROM ATENDENTES A
+INNER JOIN GERENTES G
+ON A.COD_GERENTE = G.CODIGO]]>
+	</queryString>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="NOME" class="java.lang.String"/>
+	<field name="COD_GERENTE" class="java.math.BigDecimal"/>
+	<field name="NOME_GERENTE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="48" uuid="bb2f3629-109c-4db5-b698-566f705aab50"/>
+				<textElement textAlignment="Center">
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Atendentes]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="52" width="555" height="1" uuid="489ba395-c1ba-4c96-8778-04cc6a919dfa"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="2ce77bed-5f3e-4be2-9459-a32843fccc28"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="82f99e6e-5ce3-487b-baae-6d885803285b"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="2" width="133" height="20" uuid="da435c14-fe89-439c-87c9-3474357bfc84"/>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="271" y="2" width="100" height="20" uuid="d3d55580-7208-4605-b29e-cf95a916483e"/>
+				<text><![CDATA[COD_GERENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="2" width="140" height="20" uuid="99c4bf66-e298-438e-88e5-6031617d44f0"/>
+				<text><![CDATA[NOME_GERENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="100" height="20" uuid="0de9b6fb-54bd-4406-baa1-1ad382e838bd"/>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="133" height="20" uuid="21229bbb-028f-43d3-8bfa-9116cbcd8be4"/>
+				<textFieldExpression><![CDATA[$F{NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="1" width="100" height="20" uuid="6e944e85-0d2d-4048-bfdd-cb7d31f7e1ff"/>
+				<textFieldExpression><![CDATA[$F{COD_GERENTE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="1" width="140" height="20" uuid="472b6cd2-7cc8-4829-8c94-e619a78a5434"/>
+				<textFieldExpression><![CDATA[$F{NOME_GERENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="0d51771d-6159-4cb0-b8f0-6b8cf9e1ede8"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
